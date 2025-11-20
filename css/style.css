@@ -1,0 +1,1011 @@
+/* ================================================= */
+/* 🎨 Global Styles */
+/* ================================================= */
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f4f4; 
+    color: #000;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    color: #000; 
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #000; 
+    margin: 10px 0;
+}
+
+/* --- Navbar --- */
+.navbar-container {
+    background-color: #E6E5E5; 
+    border-bottom: 3px solid #305ba3; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: #000; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: #000;
+    font-weight: 620;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #305ba3;
+}
+
+/* --- Hamburger Menu --- */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010; 
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #305ba3; 
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #305ba3;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #244579; 
+    transform: translateY(-2px);
+}
+
+/* --- Animation: Fade In --- */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-load.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation เมื่อคลิก (เปลี่ยนเป็นกากบาท) */
+.hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #305ba3;
+}
+.hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: #305ba3;
+}
+
+/* --- Contact Modal --- */
+.contact-dropdown-wrapper {
+    position: relative; 
+}
+
+.contact-modal {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background-color: #305ba3; 
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; 
+    visibility: hidden; 
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 999;
+}
+
+.contact-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.contact-modal h3 {
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.contact-modal .contact-info p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+.responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ================================================= */
+/* 🎨 Index Page (index.html)    */
+/* ================================================= */
+.main-layout {
+    display: flex;
+    min-height: calc(100vh - 53px); 
+    color: #000;
+}
+
+.left-content {
+    flex: 60%;
+    background-color: #f5f4f4;
+    padding: 150px 50px 100px 300px;
+    box-sizing: border-box;
+}
+
+.left-content h1 {
+    font-size: 3em;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.left-content h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    color: #000;
+}
+
+.left-content .welcome-text a {
+    color: #305ba3;
+    font-weight: bold;
+}
+
+.right-content {
+    flex: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent; 
+    font-size: 1.5em;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 💥 แก้ไข: ใช้ 'contain' เพื่อให้ภาพไม่ถูกตัดและเห็นเต็มภาพ */
+    display: block;
+}
+
+/* ================================================= */
+/* 🎨 About Page (about.html)    */
+/* ================================================= */
+.about-page-content {
+    background-color: #f2f2f2;
+    color: #000;
+    padding-bottom: 50px;
+}
+
+/* --- Section: About Me --- */
+.about-me-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 80px 50px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.about-image-container {
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin-right: 50px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+
+
+.about-text-content {
+    flex: 1;
+}
+
+.about-text-content h2 {
+    font-size: 2.5em;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.about-text-content hr {
+    background-color: #305ba3; 
+    height: 3px;
+    width: 80px;
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+
+.about-text-content p {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* --- Section: Education --- */
+.education-section {
+    background-color: #305ba3; 
+    color: #fff;
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.education-section .section-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.education-section .section-divider {
+    background-color: #fff;
+    height: 3px;
+    width: 80px;
+    margin: 0 auto 50px auto;
+}
+
+.education-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.education-item {
+    background-color: #fff;
+    color: #000;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: left;
+    flex: 0 0 calc(50% - 30px);
+    max-width: calc(50% - 30px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.education-item .years {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #305ba3; 
+    margin-bottom: 5px;
+}
+.education-item .gpa {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.education-item .institution {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.education-item .major {
+    margin-top: 0;
+    font-size: 0.95em;
+}
+
+/* --- Section: Certificate --- */
+.certificate-section {
+    background-color: #f2f2f2;
+    padding: 80px 50px;
+    text-align: center;
+    color: #000;
+}
+
+.certificate-section .section-title {
+    font-size: 2.5em;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.certificate-section .section-divider {
+    background-color: #305ba3; 
+    height: 3px;
+    width: 80px;
+    margin: 0 auto 50px auto;
+}
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.certificate-item {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================================================= */
+/* 🎨 Skills Page (skill.html)    */
+/* ================================================= */
+.skills-page-content {
+    background-color: #f5f4f4; 
+    color: #000;
+    text-align: center;
+    padding-top: 0; 
+    padding-bottom: 80px;
+}
+
+/* Hard Skills */
+.hard-skills-header-section {
+    background-color: #305ba3; 
+    color: #fff;
+    padding: 80px 50px; 
+    margin-bottom: 0; 
+}
+.hard-skills-header-section .section-title {
+    color: #fff;
+    font-size: 3.5em; 
+    margin-bottom: 20px; 
+}
+.hard-skills-header-section .section-divider {
+    background-color: #fff;
+    width: 120px; 
+    height: 4px;
+    margin: 20px auto 0 auto;
+}
+
+/* Hard Skills Content */
+.hard-skills-content-section {
+    padding: 60px 50px; 
+    background-color: #fff;
+}
+.skill-category {
+    margin-bottom: 80px; 
+}
+.skill-category h3 {
+    font-size: 2.5em; 
+    color: #000;
+    margin-bottom: 50px; 
+    text-align: center;
+}
+
+.programming-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 30px;
+    max-width: 1000px; 
+    margin: 0 auto 60px auto; 
+    padding: 0; 
+}
+.logo-item {
+    background-color: #f0f0f0; 
+    border-radius: 10px; 
+    padding: 25px 15px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 140px; 
+}
+.logo-item:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+}
+.responsive-skill-logo {
+    max-width: 70%; 
+    max-height: 60%; 
+    object-fit: contain;
+    margin-bottom: 12px; 
+}
+.logo-item p {
+    font-weight: bold;
+    color: #333;
+    font-size: 1em; 
+    margin: 0;
+}
+
+.skill-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0;
+}
+.skill-list-card {
+    background-color: #305ba3; 
+    color: #fff;
+    padding: 40px; 
+    border-radius: 10px; 
+    text-align: left;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
+}
+.skill-list-card h3 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px; 
+    font-size: 2em; 
+    text-align: center;
+}
+.skill-list-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.skill-list-card ul li {
+    position: relative;
+    padding-left: 30px; 
+    margin-bottom: 15px; 
+    font-size: 1.2em; 
+    line-height: 1.4;
+}
+.skill-list-card ul li::before {
+    content: '•'; 
+    color: #fff; 
+    position: absolute;
+    left: 0;
+    font-size: 1.5em; 
+    line-height: 1;
+    top: -2px; 
+}
+
+
+/* Soft Skills */
+.soft-skills-section {
+    background-color: #305ba3; 
+    color: #fff;
+    padding: 80px 50px;
+    text-align: center;
+    margin-top: 80px; 
+}
+.soft-skills-section .section-title {
+    color: #fff;
+    font-size: 3.5em; 
+    margin-bottom: 20px;
+}
+.soft-skills-section .section-divider {
+    background-color: #fff;
+    width: 120px;
+    height: 4px;
+    margin: 20px auto 0 auto;
+}
+.soft-skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 50px auto 0 auto; 
+    max-width: 700px; 
+    text-align: left;
+}
+.soft-skills-list li {
+    font-size: 1.6em; 
+    margin-bottom: 20px; 
+    position: relative;
+    padding-left: 35px; 
+    line-height: 1.5;
+}
+.soft-skills-list li::before {
+    content: '•'; 
+    color: #fff;
+    position: absolute;
+    left: 0;
+    font-size: 1.8em; 
+    line-height: 1;
+    top: -3px; 
+}
+
+/* ================================================= */
+/* 🎨 Projects Page (project.html)*/
+/* ================================================= */
+
+.projects-page-content {
+    background-color: #305ba3; 
+    color: #fff;
+    text-align: center;
+    padding: 80px 50px;
+}
+.projects-section {
+    padding: 0;
+}
+
+.projects-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 120px; 
+    text-align: left;
+}
+.project-item:last-child {
+    margin-bottom: 0;
+}
+
+.project-info-container,
+.project-slider-container {
+    flex: 1; 
+}
+
+/* Layout ซ้าย-ขวา (project-right) */
+.project-item.project-right {
+    flex-direction: row;
+}
+/* Layout ขวา-ซ้าย (project-left) */
+.project-item.project-left {
+    flex-direction: row-reverse;
+}
+
+/* ข้อมูลโปรเจกต์ */
+.project-number {
+    font-size: 4em;
+    color: rgba(255, 255, 255, 0.2); 
+    margin-bottom: 5px;
+    font-weight: 800;
+    line-height: 1;
+}
+.project-title {
+    font-size: 2em;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.project-description {
+    font-size: 1em;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/*  Image Slider (Carousel) */
+.project-slider-container {
+    position: relative;
+    overflow: hidden;
+    height: 400px; 
+    background-color: #ccc; 
+    border-radius: 8px;
+}
+.slider-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.slider-image {
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    opacity: 0; 
+    transition: opacity 0.5s ease;
+    object-fit: cover;
+}
+.slider-image.active {
+    opacity: 1; 
+}
+
+/* ปุ่มสไลด์ */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5em;
+    transition: background-color 0.3s;
+}
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.prev-btn {
+    left: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.next-btn {
+    right: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* Project Tags */
+.project-tags {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.tag {
+    background-color: #244579; 
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* ================================================= */
+/* 💻 RESPONSIVE MEDIA QUERIES                       */
+/* ================================================= */
+
+/* 1. สำหรับ Mobile และจอขนาดเล็ก (<= 768px) */
+@media (max-width: 768px) {
+    /* Navbar: เปิดใช้งาน Hamburger และซ่อนเมนูปกติ */
+    .navbar {
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: block; /* แสดงปุ่ม Hamburger */
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 53px; 
+        left: 0;
+        background-color: #E6E5E5; /* พื้นหลังเมนู Mobile เป็นสีเดียวกับ Navbar */
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(-100%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #ccc; /* 💥 แก้ไข: ให้เห็นเส้นแบ่งบนพื้นหลังอ่อน */
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px;
+        color: #000; /* 💥 แก้ไข: สี Link ใน Mobile Menu เป็นสีดำ */
+    }
+    
+    /* NEW: ปรับ Modal ในเมนู Mobile */
+    .contact-dropdown-wrapper {
+        width: 100%;
+        position: relative;
+    }
+
+    .contact-modal {
+        position: relative;
+        top: 0;
+        right: auto;
+        width: 100%;
+        border-radius: 0;
+        transform: none;
+        box-shadow: none;
+        padding: 10px 20px;
+        background-color: #244579; /* 💥 แก้ไข: สีน้ำเงินเข้มสำหรับ Mobile Modal */
+        opacity: 0; 
+        visibility: hidden;
+    }
+    
+    .contact-dropdown-wrapper .contact-modal.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Main Layout: เปลี่ยนเป็น Column (บน-ล่าง) */
+    .main-layout {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .left-content {
+        flex: 100%;
+        padding: 50px 20px 50px 10px;
+        box-sizing: border-box;
+    }   
+
+    .left-content h1 {
+        font-size: 2em;
+    }
+
+    .right-content {
+        flex: 100%;
+        min-height: 300px;
+    }
+
+    /* About Me */
+    .about-me-section {
+        padding: 40px 20px;
+    }
+    .about-text-content h2 {
+        font-size: 1.8em;
+    }
+    .about-text-content p {
+        font-size: 1em;
+    }
+
+    /* Education */
+    .education-section {
+        padding: 40px 20px;
+    }
+    .education-section .section-title {
+        font-size: 2em;
+    }
+    .education-grid {
+        gap: 20px;
+    }
+    .education-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    /* Certificate */
+    .certificate-section {
+        padding: 40px 20px;
+    }
+    .certificate-section .section-title {
+        font-size: 2em;
+    }
+    .certificate-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Skills Pages */
+    .skills-page-content {
+        padding-bottom: 60px;
+    }
+    .hard-skills-header-section {
+        padding: 50px 20px;
+    }
+    .hard-skills-header-section .section-title {
+        font-size: 2.8em;
+    }
+    .hard-skills-header-section .section-divider {
+        width: 80px;
+    }
+    .hard-skills-content-section {
+        padding: 40px 20px 60px;
+    }
+    .skill-category h3 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    .programming-logo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* ลดขนาดลงอีก */
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+    .logo-item {
+        min-height: 100px;
+        padding: 15px 8px;
+        border-radius: 8px;
+    }
+    .responsive-skill-logo {
+        max-width: 60%;
+        max-height: 50%;
+        margin-bottom: 8px;
+    }
+    .logo-item p {
+        font-size: 0.8em;
+    }
+    .skill-categories-grid {
+        grid-template-columns: 1fr; /* ให้เป็น 1 คอลัมน์บนมือถือ */
+        gap: 20px;
+    }
+    .skill-list-card {
+        padding: 25px;
+        border-radius: 8px;
+    }
+    .skill-list-card h3 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+    .skill-list-card ul li {
+        font-size: 1em;
+        margin-bottom: 10px;
+        padding-left: 25px;
+    }
+    .skill-list-card ul li::before {
+        font-size: 1.3em;
+    }
+    .soft-skills-section {
+        padding: 50px 20px;
+        margin-top: 60px;
+    }
+    .soft-skills-section .section-title {
+        font-size: 2.8em;
+    }
+    .soft-skills-section .section-divider {
+        width: 80px;
+    }
+    .soft-skills-list {
+        margin-top: 30px;
+    }
+    .soft-skills-list li {
+        font-size: 1.3em;
+        margin-bottom: 12px;
+        padding-left: 28px;
+    }
+    .soft-skills-list li::before {
+        font-size: 1.5em;
+    }
+
+    /* Projects Pages */
+    .projects-page-content {
+        padding: 50px 20px;
+    }
+    .project-item {
+        flex-direction: column !important; /* บังคับให้เรียงซ้อนกันบนมือถือ */
+        margin-bottom: 60px;
+        gap: 20px;
+    }
+    .project-slider-container {
+        order: -1; /* ย้าย Slider ไปอยู่ด้านบน */
+        width: 100%;
+        height: 250px;
+    }
+    .project-info-container {
+        width: 100%;
+        text-align: center;
+    }
+    .project-number {
+        font-size: 3.5em;
+    }
+    .project-tags {
+        justify-content: center;
+    }
+}
+
+/* --- 2. สำหรับ Tablet และจอขนาดกลาง (<= 1024px) --- */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+    
+    .left-content {
+        padding: 80px 30px;
+        flex: 50%;
+    }
+    
+    .right-content {
+        flex: 50%;
+    }
+
+    .left-content h1 {
+        font-size: 2.5em;
+    }
+
+    /* About Me */
+    .about-me-section {
+        padding: 60px 30px;
+    }
+    .about-image-container {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    .about-text-content {
+        flex: 100%;
+    }
+    .about-text-content h2 {
+        font-size: 2em;
+    }
+
+    /* Education */
+    .education-section {
+        padding: 60px 30px;
+    }
+    .education-item {
+        flex: 0 0 calc(100% - 30px);
+        max-width: calc(100% - 30px);
+    }
+
+    /* Certificate */
+    .certificate-section {
+        padding: 60px 30px;
+    }
+    .certificate-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    /* Skills */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    /* Projects */
+    .project-item {
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+    .project-number {
+        font-size: 3em;
+    }
+    .project-title {
+        font-size: 1.8em;
+    }
+    .project-slider-container {
+        height: 300px;
+    }
+}
